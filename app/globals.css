@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #FFF8F0;
+  --foreground: #1E0040;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --gold: #FFD700;
+  --gold-light: #FFF0A0;
+  --gold-dark: #B8860B;
+  --saffron: #FF9933;
+  --saffron-dark: #E07000;
+  --purple: #6A0DAD;
+  --purple-dark: #3D0C5C;
+  --maroon: #8B0000;
+  --turmeric: #FFC000;
+  --ivory: #FFF8F0;
+  --cream: #FAEBD7;
+  --champagne: #FFE4B5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}
+
+/* Custom font utility classes */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+/* Shimmer gold text effect */
+.shimmer-gold {
+  background: linear-gradient(
+    105deg,
+    #B8860B 0%,
+    #FFD700 25%,
+    #FFF0A0 45%,
+    #FFE57A 55%,
+    #FFD700 75%,
+    #B8860B 100%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-gold 5s linear infinite;
+}
+
+/* Saffron shimmer variant */
+.shimmer-saffron {
+  background: linear-gradient(
+    105deg,
+    #E07000 0%,
+    #FF9933 25%,
+    #FFD700 45%,
+    #FF9933 75%,
+    #E07000 100%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-gold 5s linear infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #3D0C5C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #FF9933, #FFD700);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFF0A0;
+}
+
+/* Keyframes */
+@keyframes shimmer-gold {
+  0% { background-position: 250% center; }
+  100% { background-position: -250% center; }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(-5px) rotate(-0.5deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.08; transform: scale(0.6); }
+  50% { opacity: 0.95; transform: scale(1.3); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 153, 51, 0); }
+  50% { box-shadow: 0 0 24px 8px rgba(255, 153, 51, 0.3); }
+}
+
+@keyframes slow-pan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-float-gentle {
+  animation: float-gentle 5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Gold ornamental divider */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--gold);
+}
+
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--saffron), transparent);
+  opacity: 0.7;
+}
+
+/* Section background texture overlay */
+.texture-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF9933' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Rangoli pattern overlay */
+.rangoli-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF9933' fill-opacity='0.05'%3E%3Ccircle cx='50' cy='50' r='7'/%3E%3Ccircle cx='50' cy='50' r='22' stroke='%23FF9933' stroke-opacity='0.04' stroke-width='1.2' fill='none'/%3E%3Ccircle cx='50' cy='50' r='36' stroke='%23FF9933' stroke-opacity='0.03' stroke-width='0.8' fill='none'/%3E%3Cpath d='M50 28 L53 43 L68 50 L53 57 L50 72 L47 57 L32 50 L47 43 Z' fill='%23FF9933' fill-opacity='0.04'/%3E%3Cpath d='M50 14 L52 34 M50 66 L52 86 M14 50 L34 52 M66 50 L86 52' stroke='%23FF9933' stroke-opacity='0.03' stroke-width='0.6'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Warli dot pattern — use on light sections */
+.warli-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23FF9933' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3Ccircle cx='0' cy='0' r='1.5'/%3E%3Ccircle cx='60' cy='0' r='1.5'/%3E%3Ccircle cx='0' cy='60' r='1.5'/%3E%3Ccircle cx='60' cy='60' r='1.5'/%3E%3Cline x1='0' y1='30' x2='60' y2='30' stroke='%23FF9933' stroke-opacity='0.03' stroke-width='0.5'/%3E%3Cline x1='30' y1='0' x2='30' y2='60' stroke='%23FF9933' stroke-opacity='0.03' stroke-width='0.5'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Paithani-style horizontal rule */
+.paithani-hr {
+  height: 3px;
+  border: none;
+  background: repeating-linear-gradient(
+    to right,
+    #8B0000 0px, #8B0000 6px,
+    #FF9933 6px, #FF9933 14px,
+    #FFD700 14px, #FFD700 22px,
+    #228B22 22px, #228B22 30px,
+    #6A0DAD 30px, #6A0DAD 38px,
+    #FFD700 38px, #FFD700 46px,
+    #FF9933 46px, #FF9933 54px,
+    #8B0000 54px, #8B0000 60px
+  );
+  opacity: 0.65;
+}
